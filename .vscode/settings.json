@@ -16,6 +16,26 @@
         "idf.toolsPathWin": "C:\\Users\\kayqu\\.espressif",
         "idf.flashType": "UART",
         "C_Cpp.errorSquiggles": "disabled",
-        "C_Cpp.default.compilerPath": "C:\\Espressif\\tools\\xtensa-esp32-elf\\esp-12.2.0_20230208\\xtensa-esp32-elf\\bin\\xtensa-esp32-elf-gcc.exe"
+        "C_Cpp.default.compilerPath": "C:\\Espressif\\tools\\xtensa-esp32-elf\\esp-12.2.0_20230208\\xtensa-esp32-elf\\bin\\xtensa-esp32-elf-gcc.exe",
+        "files.associations": {
+            "freertos.h": "c",
+            "ds18b20.h": "c",
+            "plate_temperature.h": "c",
+            "esp_adc_cal.h": "c",
+            "data_queue.h": "c",
+            "array": "c",
+            "string": "c",
+            "string_view": "c",
+            "span": "c",
+            "rtc_io.h": "c",
+            "esp_sleep.h": "c",
+            "nvs_flash.h": "c",
+            "sdmmc_host.h": "c",
+            "sdmmc_cmd.h": "c",
+            "sdmmc_types.h": "c",
+            "esp_wifi.h": "c",
+            "time.h": "c",
+            "_timeval.h": "c"
+        }
     }
     

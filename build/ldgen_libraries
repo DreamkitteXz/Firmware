@@ -60,7 +60,6 @@ C:/Users/kayqu/ESP-IDF/OBSAT-2023/Firmware/build/esp-idf/perfmon/libperfmon.a
 C:/Users/kayqu/ESP-IDF/OBSAT-2023/Firmware/build/esp-idf/spiffs/libspiffs.a
 C:/Users/kayqu/ESP-IDF/OBSAT-2023/Firmware/build/esp-idf/wifi_provisioning/libwifi_provisioning.a
 C:/Users/kayqu/ESP-IDF/OBSAT-2023/Firmware/build/esp-idf/main/libmain.a
-C:/Users/kayqu/ESP-IDF/OBSAT-2023/Firmware/build/esp-idf/i2cdev/libi2cdev.a
-C:/Users/kayqu/ESP-IDF/OBSAT-2023/Firmware/build/esp-idf/bmp180/libbmp180.a
 C:/Users/kayqu/ESP-IDF/OBSAT-2023/Firmware/build/esp-idf/ds18b20/libds18b20.a
+C:/Users/kayqu/ESP-IDF/OBSAT-2023/Firmware/build/esp-idf/i2cdev/libi2cdev.a
 C:/Users/kayqu/ESP-IDF/OBSAT-2023/Firmware/build/esp-idf/onewire/libonewire.a

@@ -1,2 +1,2 @@
-idf_component_register(SRCS "main.c" "sensores/temperatura_ds18b20/ds18b20_cod.c" "sensores/sensores_i2c/i2c.c" "payload/tensao_placa.c" "servidor/wifi.c" "servidor/http_client.c" "payload/contador_geiger.c" "sensores/sensores_i2c/nivel_bateria.c"
+idf_component_register(SRCS "main.c" "Sensors/Payload/plate_temperature.c" "Sensors/Payload/plate_voltage.c" "Communication/wifi.c" "Communication/http_request.c" "Sensors/Payload/pulse_counter.c" "Sensors/Telemetry/i2c.c" "Communication/SD_card/memory.c"
                     INCLUDE_DIRS ".")

@@ -39,14 +39,14 @@
 #include "driver/spi_master.h"
 #include "esp_vfs_fat.h"
 #include "Communication/libs/memory.h"
-
+#include "Sensors/Telemetry/libs/batery_level.h"
 //==================================
 //teste 
 
 //=======================================================
 // --- Deep Sleep ---
 void configure_deep_sleep() {
-    const int deep_sleep_sec = 10; // 3 minutos e 40 segundos
+    const int deep_sleep_sec = 15; // 3 minutos e 40 segundos
     esp_sleep_enable_timer_wakeup(deep_sleep_sec * 1000000); // Microssegundos
     ESP_LOGI("DEEP SLEEP", "Antes de entrar na função do deep sleep");
     esp_deep_sleep_start();
@@ -57,6 +57,7 @@ void configure_deep_sleep() {
 
 void app_main(void)
 { 
+    pulse_counter_start();
     initialize_i2c_semaphores();
     // --- inicializar o NVS ---
     ESP_LOGI("TESTANDO", "CHEGUEI AQUI");
@@ -68,30 +69,33 @@ void app_main(void)
         ret = nvs_flash_init();
     }
     ESP_LOGI("TESTANDO", "CHEGUEI AQUIa");
-
+        printf("HELLO");
     // --- I2C ---
-    //bmp180_init_task();
-    //vTaskDelay( 2000 / portTICK_PERIOD_MS);
+    bmp180_init_task();
+    vTaskDelay( 2000 / portTICK_PERIOD_MS);
     //printf("Pressure: %ld Pa", sensor_data.pressure);
-    //mpu6050_init_task();
+    mpu6050_init_task();
     // --- ONEWIRE ---
-    //ler_temp_ds18b20_start();
+    ler_temp_ds18b20_start();
     //printf("Plate Temperature: %f\n", sensor_data.plate_temp);
     
-    // --- PAYLOAD ---
+     // --- PAYLOAD ---
+    //
     //ler_tensao_placa_start(); // Inicia a task de ler_tensao_placa
     //printf("Voltage: %d\n", sensor_data.voltage);
 
-    //pulse_counter_start();
    // printf("Pulse Counter: %d\n", sensor_data.pulses);
+   //ler_nivel_bateria_start();
+
     
     
     // --- Wifi ---
-    //wifi_start();
+    wifi_start();
+    vTaskDelay(1000 / portTICK_PERIOD_MS);
 
     // --- HTTP POST ---
-    //vTaskDelay(20000 / portTICK_PERIOD_MS); //Aguarda a conexão do wifi
-    //http_request();
+    vTaskDelay(15000 / portTICK_PERIOD_MS); //Aguarda a conexão do wifi
+    http_request();
     //printf("Voltage: %d\n", sensor_data.voltage);
     //printf("Plate Temperature: %f\n", sensor_data.plate_temp);
     //printf("Pulse Counter: %d\n", sensor_data.pulses);
@@ -123,7 +127,9 @@ void app_main(void)
     */
     
     // Configurar e iniciar deep sleep
-        saveData();
+
+    saveData();
+    vTaskDelay(2000 / portTICK_PERIOD_MS); //Aguarda a conexão do wifi
 
      configure_deep_sleep();
     //===================================================TESTE    

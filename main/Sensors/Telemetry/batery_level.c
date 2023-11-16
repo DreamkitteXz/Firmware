@@ -13,6 +13,7 @@
 #include "freertos/task.h"
 #include "driver/adc.h"
 #include "esp_adc_cal.h"
+#include "Communication/libs/data_queue.h"
 
 static esp_adc_cal_characteristics_t adc1_chars;
 
@@ -29,16 +30,13 @@ void ler_nivel_bateria(void*params)
     {
         int adc_value = adc1_get_raw(ADC1_CHANNEL_7);
         float adc_value_voltage = esp_adc_cal_raw_to_voltage(adc1_get_raw(ADC1_CHANNEL_7), &adc1_chars);
-        //float corrente = adc_value_voltage / 193;
+        sensor_data.batery = adc_value;
         printf("Valor ADC bateria: %d", adc_value); 
-        printf("\n");
-        printf("Valor ADC em volts bateria: %f V\n ", adc_value_voltage); 
-        //printf("Valor da corrente da placa: %0.2f mA\n", corrente);
         vTaskDelay(2000/ portTICK_PERIOD_MS);
     }
 }
 
-void ler_tensao_placa_start()
+void ler_nivel_bateria_start()
 {
-    ler_nivel_bateria(&ler_nivel_bateria,"Leitura de Nível Bateria", 2048, NULL, 1, NULL);
+    xTaskCreate(&ler_nivel_bateria,"Leitura de Nível Bateria", 2048, NULL, 1, NULL);
 }

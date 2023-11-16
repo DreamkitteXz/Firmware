@@ -39,7 +39,7 @@ void ler_temp_ds18b20(void * params) //Fazer uma task
    {
       cTemp = ds18b20_get_temp();
       printf("Temperatura: %0.1f C\n", cTemp);
-      vTaskDelay(2000 / portTICK_PERIOD_MS);
+      vTaskDelay(1000 / portTICK_PERIOD_MS);
       sensor_data.plate_temp = cTemp;
    }
 }

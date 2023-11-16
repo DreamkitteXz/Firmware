@@ -1,7 +1,7 @@
 {
     "version":            "1",
     "project_name":       "Firmware",
-    "project_version":    "e80ac4e-dirty",
+    "project_version":    "89c641b-dirty",
     "project_path":       "C:/Users/kayqu/ESP-IDF/OBSAT-2023/Firmware",
     "idf_path":           "C:/Users/kayqu/esp/esp-idf",
     "build_dir":          "C:/Users/kayqu/ESP-IDF/OBSAT-2023/Firmware/build",
@@ -835,7 +835,7 @@
             "managed_reqs": [],
             "managed_priv_reqs": [],
             "file": "C:/Users/kayqu/ESP-IDF/OBSAT-2023/Firmware/build/esp-idf/main/libmain.a",
-            "sources": [ "C:/Users/kayqu/ESP-IDF/OBSAT-2023/Firmware/main/main.c", "C:/Users/kayqu/ESP-IDF/OBSAT-2023/Firmware/main/Sensors/Payload/plate_temperature.c", "C:/Users/kayqu/ESP-IDF/OBSAT-2023/Firmware/main/Sensors/Payload/plate_voltage.c", "C:/Users/kayqu/ESP-IDF/OBSAT-2023/Firmware/main/Communication/wifi.c", "C:/Users/kayqu/ESP-IDF/OBSAT-2023/Firmware/main/Communication/http_request.c", "C:/Users/kayqu/ESP-IDF/OBSAT-2023/Firmware/main/Sensors/Payload/pulse_counter.c", "C:/Users/kayqu/ESP-IDF/OBSAT-2023/Firmware/main/Sensors/Telemetry/i2c.c", "C:/Users/kayqu/ESP-IDF/OBSAT-2023/Firmware/main/Communication/SD_card/memory.c" ],
+            "sources": [ "C:/Users/kayqu/ESP-IDF/OBSAT-2023/Firmware/main/main.c", "C:/Users/kayqu/ESP-IDF/OBSAT-2023/Firmware/main/Sensors/Payload/plate_temperature.c", "C:/Users/kayqu/ESP-IDF/OBSAT-2023/Firmware/main/Sensors/Payload/plate_voltage.c", "C:/Users/kayqu/ESP-IDF/OBSAT-2023/Firmware/main/Communication/wifi.c", "C:/Users/kayqu/ESP-IDF/OBSAT-2023/Firmware/main/Communication/http_request.c", "C:/Users/kayqu/ESP-IDF/OBSAT-2023/Firmware/main/Sensors/Payload/pulse_counter.c", "C:/Users/kayqu/ESP-IDF/OBSAT-2023/Firmware/main/Sensors/Telemetry/i2c.c", "C:/Users/kayqu/ESP-IDF/OBSAT-2023/Firmware/main/Sensors/Telemetry/batery_level.c", "C:/Users/kayqu/ESP-IDF/OBSAT-2023/Firmware/main/Communication/SD_card/memory.c" ],
             "include_dirs": [ "." ]
         },
         "mbedtls": {

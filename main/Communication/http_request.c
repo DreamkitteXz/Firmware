@@ -45,11 +45,12 @@ esp_err_t _http_event_handle(esp_http_client_event_t *evt)
 // Função para criar uma string JSON a partir dos dados da estrutura SensorData
 char* create_json_string(SensorData data) {
     char json_buffer[256];  // Tamanho suficiente para a string JSON
-
-    snprintf(json_buffer, sizeof(json_buffer),
-             "{\"equipe\":76,\"bateria\":%d,\"temperatura\":%f,\"pressao\":%ld,\"giroscopio\":[%d,%d,%d],\"acelerometro\":[%d,%d,%d],\"payload\":{\"contador\":%d,\"tensao\":%d,\"temp\":%f}}",
-             data.voltage, data.temperature, data.pressure, data.gyro_x, data.gyro_y, data.gyro_z, data.accel_x, data.accel_y, data.accel_z, data.pulses, data.voltage, data.plate_temp);
-            
+    data.voltage = 2340;
+    data.batery = 4095;
+snprintf(json_buffer, sizeof(json_buffer),
+         "{\"equipe\": 4,\"bateria\":%d,\"temperatura\":%.1f,\"pressao\":%ld,\"gyroscope\":{\"x\":%d,\"y\":%d,\"z\":%d},\"acelerometro\":{\"x\":%d,\"y\":%d,\"z\":%d},\"payload\":{\"contador\":%d,\"tensao\":%d,\"temp\":%.1f}}",
+          data.batery, data.temperature, data.pressure, data.gyro_x, data.gyro_y, data.gyro_z, data.accel_x, data.accel_y, data.accel_z, data.pulses, data.voltage, data.plate_temp);
+          
     char *json_string = strdup(json_buffer);  // Aloque dinamicamente a string JSON
 
     return json_string;
@@ -61,7 +62,7 @@ void http_request() {
     char *post_data = create_json_string(sensor_data);
 
     esp_http_client_config_t config_post = {
-        .url = "https://obsat.org.br/teste_post/envio.php",
+        .url = "http://192.168.4.1/",
         .method = HTTP_METHOD_POST,
         .cert_pem = NULL,
         .event_handler = _http_event_handle};

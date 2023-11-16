@@ -11,8 +11,8 @@
 
 #include "libs/wifi.h"
 
-#define WIFI_SSID "ETE-ALUNOS"
-#define WIFI_PASS "etefmc890"
+#define WIFI_SSID "obsat-test-server"
+#define WIFI_PASS "obsatpass"
 #define WIFI_MAXIMUM_RETRY 5
 
 #define WIFI_CONNECTED_BIT BIT0

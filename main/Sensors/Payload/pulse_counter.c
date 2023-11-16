@@ -14,6 +14,7 @@
 #include "driver/rtc_io.h"
 
 #define PULSE_COUNTER_PIN 26
+static const int GPIO_OUTPUT_IO_0 = 33;
 
 void pcnt_contador(void * params)
 {
@@ -49,21 +50,29 @@ void pcnt_contador(void * params)
         pcnt_get_counter_value(pcnt_unit, &pulse_count);
         //printf("Contagem de pulsos: %d\n", pulse_count);
         sensor_data.pulses = pulse_count;
-   vTaskDelay(500/ portTICK_PERIOD_MS);
+   vTaskDelay(100/ portTICK_PERIOD_MS);
     }
 }
-void pulse_counter_suply(void *params)
-{
-  esp_rom_gpio_pad_select_gpio(33);
-  gpio_set_direction(33, GPIO_MODE_OUTPUT);
-  int ON = 0;
-while(true)
-{
-   ON = !ON;
-   gpio_set_level(33, ON);
-   vTaskDelay(100 / portTICK_PERIOD_MS);
+void pulse_counter_suply(void *params) {
+    esp_rom_gpio_pad_select_gpio(GPIO_OUTPUT_IO_0);
+    gpio_set_direction(GPIO_OUTPUT_IO_0, GPIO_MODE_OUTPUT);
+    
+    int pulse_count = 0;
+    while (pulse_count < 200) {
+        gpio_set_level(GPIO_OUTPUT_IO_0, 1);
+        vTaskDelay(20 / portTICK_PERIOD_MS);
+        
+        gpio_set_level(GPIO_OUTPUT_IO_0, 0);
+        vTaskDelay(20 / portTICK_PERIOD_MS);
+        
+        pulse_count++;
+
+        if (pulse_count >= 180 && pulse_count <= 200) {
+            // Your desired actions or further processing within the pulse range
+        }
+    }
 }
-}
+    
 void pulse_counter_start(void)
 {
     xTaskCreate(&pcnt_contador, "Codigo de Contar", 2048, NULL, 1, NULL);
